@@ -1,0 +1,15 @@
+<h2>Hidding component examples. ngIf. ngTemplate.Hidden.</h2>
+<div *ngIf="courses.length > 0">
+    List of courses. Please remove courses to see another message.
+</div>
+<div *ngIf="courses.length == 0">
+    No courses yet because no courses where defined
+</div>
+<div *ngIf="tests.length > 0; then testsList else noTests"></div>
+<ng-template #testsList>
+    List of tests. Template variables approach
+</ng-template>
+<ng-template #noTests>
+    No tests yet
+</ng-template>
+<div [hidden]="tests.length > 0">Hidden div</div>

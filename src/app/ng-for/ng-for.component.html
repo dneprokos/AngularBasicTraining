@@ -1,0 +1,8 @@
+<h2>Video list using ngFor. Plus Add/Remove video.</h2>
+<ul>
+    <li *ngFor="let vid of videos; index as i; trackBy: trackVideo">
+       {{ i+1 }} - {{ vid.name }}
+       <button (click)="onRemoveVideo(vid)">Remove</button>
+    </li>
+</ul>
+<button (click)="onAddVideo()">Add Video</button>

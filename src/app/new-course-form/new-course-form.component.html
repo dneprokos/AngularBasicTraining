@@ -1,0 +1,15 @@
+<h2>Add/Remove components list</h2>
+<h4>Input string and press Enter in order to add component</h4>
+<form>
+  <input type="text" class="form-control"
+  (keyup.enter)="addTopic(topic)" #topic>
+  <ul class="list-group">
+    <li
+    *ngFor="let topic of topics.controls"
+    (click)="removeTopic(topic)" 
+    class="list-group-item">
+    {{ topic.value }}
+  </li>
+  </ul>
+</form>
+<h4 *ngIf="topics.length > 0">Click component in order to remove it</h4>

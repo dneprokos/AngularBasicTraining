@@ -1,0 +1,7 @@
+<app-likebutton [likesCount]="tweet.likesCount" [isLiked]="tweet.isLiked">
+</app-likebutton>
+<h2>Favorite Glyph</h2>
+<app-favorite 
+[is-favorite]="post.isFavorite" 
+(change)="onFavoriteChange($event)">
+</app-favorite>

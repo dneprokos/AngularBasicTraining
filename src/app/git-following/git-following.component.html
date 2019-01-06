@@ -1,0 +1,14 @@
+<h2>Dneprokos has following on Github</h2>
+<div *ngFor="let followUser of following" class="media">
+    <div class="media-left">
+        <a href="#">
+            <img class="avatar media-object" src="{{ followUser.avatar_url }}" alt="...">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">
+            <a [routerLink]="['/following', followUser.id, followUser.login]">{{ followUser.login }}</a>
+        </h4>
+        <a href="followUser.html_url">{{ followUser.html_url }}</a>
+    </div>
+</div>

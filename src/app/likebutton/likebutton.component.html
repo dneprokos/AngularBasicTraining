@@ -1,0 +1,8 @@
+<h2>Like button example</h2>
+<span
+class="glyphicon glyphicon-heart"
+[class.highlighted]="isLiked"
+(click)="onLikeClick()">
+</span>
+
+<span>{{ likesCount }}</span>
