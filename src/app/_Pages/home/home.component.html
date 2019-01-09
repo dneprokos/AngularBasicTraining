@@ -1,0 +1,19 @@
+<h1>Home Page</h1>
+<h3>Navigation example</h3>
+<ul>
+  <li *ngFor="let archive of archives">
+    <a 
+    [routerLink]="['/archive', archive.year, archive.month]">
+    {{ archive.year + "/" + archive.month }}
+    </a> 
+  </li>
+</ul>
+<h3>Authentication example</h3>
+<p>
+    Welcome [NAME]
+</p>
+<ul>
+  <li><a routerLink="/admin">Admin</a></li>
+  <li><a routerLink="/login">Login</a></li>
+  <li><a>Logout</a></li>
+</ul>

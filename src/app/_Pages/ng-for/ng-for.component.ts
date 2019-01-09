@@ -14,7 +14,11 @@ export class NgForComponent {
   ]
 
   onAddVideo(){
-    let newId = this.videos[this.videos.length-1].id + 1;
+    let newId;
+    if (this.videos.length === 0)
+      newId = 1;
+    else
+      newId = this.videos[this.videos.length-1].id + 1;
     this.videos.push({ id: newId, name: 'video' + newId})
  }
 

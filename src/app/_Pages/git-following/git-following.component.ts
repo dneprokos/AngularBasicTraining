@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GitFollowingService } from '../services/git-following.service';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs/';
+import { GitFollowingService } from 'src/app/services/git-following.service';
 
 @Component({
   selector: 'app-git-following',
