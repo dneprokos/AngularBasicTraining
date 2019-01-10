@@ -15,14 +15,7 @@ export class LoginComponent {
     private authService: AuthService) { }
 
   signIn(credentials) {
-    this.authService
-    .login(credentials);
-    /*.subscribe(result => { 
-      if (result)
-        this.router.navigate(['/']);
-      else  
-        this.invalidLogin = true;
-      }            
-    );*/
+    let isSussessfull = this.authService.login(credentials);
+    isSussessfull ? this.router.navigate(['/']) : this.invalidLogin = true;
   }
 }
