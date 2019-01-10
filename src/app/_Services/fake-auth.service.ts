@@ -19,10 +19,11 @@ export class FakeAuthService {
     },
   ]
 
-  constructor() { }
+  getAuthToken(credentials){
+    let obj = this.accounts
+    .filter(obj =>obj.name === credentials.name 
+      &&  obj.password === credentials.password);
 
-  GetAuthToken(credentials: {}){
-    
+    console.log(obj);
   }
-
 }

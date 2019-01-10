@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
-import { AppError } from 'src/app/common/app-error';
-import { BadRequestError } from 'src/app/common/bad-request-error';
-import { NotFoundError } from 'src/app/common/not-found-error';
+import { PostService } from 'src/app/_Services/post.service';
+import { AppError } from 'src/app/_Components/common/app-error';
+import { BadRequestError } from 'src/app/_Components/common/bad-request-error';
+import { NotFoundError } from 'src/app/_Components/common/not-found-error';
 
 
 

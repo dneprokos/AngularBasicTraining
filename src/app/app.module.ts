@@ -46,6 +46,7 @@ import { AuthService } from './_Services/auth.service';
 import { AuthorsService } from './_Services/authors.service';
 import { PostService } from './_Services/post.service';
 import { GitFollowingService } from './_Services/git-following.service';
+import { FakeAuthService } from './_Services/fake-auth.service';
 
 
 @NgModule({
@@ -125,6 +126,8 @@ import { GitFollowingService } from './_Services/git-following.service';
     AuthorsService,
     PostService,
     GitFollowingService,
+    AuthService,
+    FakeAuthService,
     { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   bootstrap: [AppComponent]

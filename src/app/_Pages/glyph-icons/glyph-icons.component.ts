@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FavoriteChangeEvent } from '../favorite/favorite.component';
+import { FavoriteChangeEvent } from 'src/app/_Components/favorite/favorite.component';
 
 @Component({
   selector: 'app-glyph-icons',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { FakeAuthService } from './fake-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +8,16 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   url : string = `http://localhost:4000/authenticate`;
   responseBody: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private fakeService: FakeAuthService) { }
 
   login(credentials) { 
-    //return this.http
-    //.post<any>( this.url, JSON.stringify(credentials))
-    console.log(credentials);
-    }    
+    this.fakeService.getAuthToken(credentials);
+  }    
  
-   logout() { 
-   }
+  logout() { 
+  }
  
-   isLoggedIn() { 
-     return false;
-   }
+  isLoggedIn() { 
+    return false;
+  }
 }

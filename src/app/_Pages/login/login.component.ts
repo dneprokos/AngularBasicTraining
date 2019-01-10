@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-import { first } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/_Services/auth.service';
 
 @Component({
   selector: 'login',

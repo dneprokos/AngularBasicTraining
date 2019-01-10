@@ -15,7 +15,4 @@ export class ContactFormComponent {
   submit(f: NgForm){
     console.log(f);    
   }
-
-
-
 }
