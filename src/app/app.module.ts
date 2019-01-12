@@ -1,7 +1,10 @@
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './_Pages/courses.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientJsonpModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClientJsonpModule,
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -46,6 +49,9 @@ import { AuthService } from './_Services/auth.service';
 import { AuthorsService } from './_Services/authors.service';
 import { PostService } from './_Services/post.service';
 import { GitFollowingService } from './_Services/git-following.service';
+import { AuthGuard } from './_Services/auth-guard.service';
+import { AdminAuthGuard } from './_Services/admin-auth-guard.service';
+import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -103,17 +109,21 @@ import { GitFollowingService } from './_Services/git-following.service';
       { path: 'createcourse', component: CreateCourseComponent },
       { path: 'newcourse', component: NewCourseFormComponent },
       { path: 'signup', component: SignupFormComponent },
-      { path: 'formbuilder', component: FormBuilderComponent },      
-      { path: 'changepassword', component: ChangePasswordComponent },      
+      { path: 'formbuilder', component: FormBuilderComponent },
+      { path: 'changepassword', component: ChangePasswordComponent },
       { path: 'inputfield', component: InputFieldComponent },
       { path: 'ngswitch', component: NgSwitchCaseComponent },
-      { path: 'ngfor', component: NgForComponent },      
+      { path: 'ngfor', component: NgForComponent },
       { path: 'ngif', component: NgIfComponent },
-      { path: 'glyphicons', component: GlyphIconsComponent },       
+      { path: 'glyphicons', component: GlyphIconsComponent },
       { path: 'testpanels', component: TestPanelsComponent },
-      { path: 'admin', component: AdminComponent },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]
+      },
       { path: 'login', component: LoginComponent },
-      { path: 'no-access', component: NoAccessComponent },       
+      { path: 'no-access', component: NoAccessComponent },
       { path: '**', component: NotFoundComponent },
     ])
   ],
@@ -125,7 +135,10 @@ import { GitFollowingService } from './_Services/git-following.service';
     PostService,
     GitFollowingService,
     AuthService,
+    AuthGuard,
+    AdminAuthGuard,
     { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
