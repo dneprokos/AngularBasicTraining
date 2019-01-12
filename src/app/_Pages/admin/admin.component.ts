@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/_Services/order.service';
+import { first } from 'rxjs/operators';
+import { OrderModel } from 'src/app/_Models/order-model';
 
 @Component({
   selector: 'app-admin',
@@ -7,12 +9,21 @@ import { OrderService } from 'src/app/_Services/order.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  orders: any;
+  orders: String [];
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+    this.loadAllOrders();
+  }
+
+  private loadAllOrders() {
     this.orderService.getOrders()
-      .subscribe(orders => this.orders = orders);
+    .pipe(first()).subscribe(orders =>{
+      if (orders !== null){
+        let returnedOrders: OrderModel [] = orders as [];
+        this.orders = returnedOrders.map(o =>o.name);
+      }     
+    });
   }
 }
