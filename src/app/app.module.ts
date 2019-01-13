@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './_Pages/courses.component';
 import {
@@ -97,6 +98,7 @@ import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'unsorted', component: UnsortedTestComponentsComponent },

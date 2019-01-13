@@ -12,7 +12,10 @@
     }"
     ></span>  
   </div>
-  <div *ngIf="isExpanded" class="zippy-body">
+  <div
+  [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'" 
+  *ngIf="isExpanded" 
+  class="zippy-body">
     <ng-content></ng-content>
   </div>
 </div>

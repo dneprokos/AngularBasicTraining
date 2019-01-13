@@ -1,10 +1,14 @@
-<h2>Add/Remove components list</h2>
+<div @todosAnimation>
+  <h2>Add/Remove todo list</h2>
 <h4>Input string and press Enter in order to add component</h4>
 <form>
   <input type="text" class="form-control"
   (keyup.enter)="addTopic(topic)" #topic>
   <ul class="list-group">
     <li
+    @todoAnimation
+    (@todoAnimation.start)="animationStarted($event)"
+    (@todoAnimation.done)="animationDone($event)"
     *ngFor="let topic of topics.controls"
     (click)="removeTopic(topic)" 
     class="list-group-item">
@@ -12,4 +16,5 @@
   </li>
   </ul>
 </form>
-<h4 *ngIf="topics.length > 0">Click component in order to remove it</h4>
+<h4 *ngIf="topics.length > 0" @todoAnimation>Click component in order to remove it</h4>
+</div>
