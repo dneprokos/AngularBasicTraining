@@ -1,5 +1,5 @@
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoursesComponent } from './_Pages/courses.component';
 import {
   HttpClientModule,
@@ -53,6 +53,9 @@ import { GitFollowingService } from './_Services/git-following.service';
 import { AuthGuard } from './_Services/auth-guard.service';
 import { AdminAuthGuard } from './_Services/admin-auth-guard.service';
 import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
+import { AngularMeterialComponent } from './_Pages/angular-meterial/angular-meterial.component';
+import { EditCourseComponent} from './edit-course/edit-course.component';
+import { MatComponentsModule } from './mat-components/mat-components.module';
 
 @NgModule({
   declarations: [
@@ -90,7 +93,12 @@ import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
     ArchiveComponent,
     AdminComponent,
     LoginComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    AngularMeterialComponent,
+    EditCourseComponent   
+  ],
+  entryComponents:[
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -99,6 +107,7 @@ import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
+    MatComponentsModule,      
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'unsorted', component: UnsortedTestComponentsComponent },
@@ -119,6 +128,7 @@ import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
       { path: 'ngif', component: NgIfComponent },
       { path: 'glyphicons', component: GlyphIconsComponent },
       { path: 'testpanels', component: TestPanelsComponent },
+      { path: 'angulalMaterial', component: AngularMeterialComponent },
       {
         path: 'admin',
         component: AdminComponent,

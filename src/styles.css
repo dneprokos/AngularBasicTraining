@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
+
 
 body { padding: 20px; margin-bottom: 20px}
 
@@ -7,4 +11,8 @@ input {margin-bottom: 30px; margin-right: 20px}
 
 .form-control.ng-touched.ng-invalid {
     border: 2px solid red;
+}
+
+.mat-tab-body-content {
+    padding-top: 20px;
 }
