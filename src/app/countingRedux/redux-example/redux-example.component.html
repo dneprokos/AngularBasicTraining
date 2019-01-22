@@ -1,0 +1,10 @@
+<h1>Redux example page</h1>
+<p>Counter: {{ counter | async }}</p>
+<button (click)="increment()">Increment</button>
+<br>
+<div class="partition">
+  <app-todo-list></app-todo-list>
+</div>
+<div class="partition partition-filled">
+  <app-todo-dashboard></app-todo-dashboard>
+</div>

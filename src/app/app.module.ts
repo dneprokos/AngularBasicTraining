@@ -55,7 +55,12 @@ import { AdminAuthGuard } from './_Services/admin-auth-guard.service';
 import { HttpConfigInterceptor } from './_Interseptor/httpconfig.interceptor';
 import { AngularMeterialComponent } from './_Pages/angular-meterial/angular-meterial.component';
 import { EditCourseComponent} from './edit-course/edit-course.component';
-import { MatComponentsModule } from './mat-components/mat-components.module';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { TodoListComponent } from './tasking/todo-list/todo-list.component';
+import { TodoDashboardComponent } from './tasking/todo-dashboard/todo-dashboard.component';
+import { MatComponentsModule } from './_Components/mat-components/mat-components.module';
+import { ReduxExampleComponent } from './countingRedux/redux-example/redux-example.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +100,10 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
     LoginComponent,
     NoAccessComponent,
     AngularMeterialComponent,
-    EditCourseComponent   
+    EditCourseComponent,
+    ReduxExampleComponent,
+    TodoListComponent,
+    TodoDashboardComponent, 
   ],
   entryComponents:[
     EditCourseComponent
@@ -107,7 +115,8 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
     HttpClientModule,
     HttpClientJsonpModule,
     BrowserAnimationsModule,
-    MatComponentsModule,      
+    MatComponentsModule,
+    NgReduxModule,      
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'unsorted', component: UnsortedTestComponentsComponent },
@@ -128,6 +137,7 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
       { path: 'ngif', component: NgIfComponent },
       { path: 'glyphicons', component: GlyphIconsComponent },
       { path: 'testpanels', component: TestPanelsComponent },
+      { path: 'redux', component: ReduxExampleComponent },
       { path: 'angulalMaterial', component: AngularMeterialComponent },
       {
         path: 'admin',
@@ -154,4 +164,8 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>){
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+ }
