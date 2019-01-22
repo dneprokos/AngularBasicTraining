@@ -59,8 +59,8 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { TodoListComponent } from './tasking/todo-list/todo-list.component';
 import { TodoDashboardComponent } from './tasking/todo-dashboard/todo-dashboard.component';
-import { MatComponentsModule } from './_Components/mat-components/mat-components.module';
 import { ReduxExampleComponent } from './countingRedux/redux-example/redux-example.component';
+import { MatComponentsModule } from './mat-components/mat-components.module';
 
 @NgModule({
   declarations: [
