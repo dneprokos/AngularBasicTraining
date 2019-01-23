@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AuthorsComponent } from './authors.component';
 
 describe('AuthorsComponent', () => {
@@ -21,5 +20,9 @@ describe('AuthorsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('title should be', () => {
+    let actualTitle = component.getTitle();
+    expect(actualTitle).toBe('List of authors'); 
   });
 });

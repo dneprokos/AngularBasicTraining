@@ -12,7 +12,7 @@ export class CreateCourseComponent {
     {id: 2, name: 'Art'},
     {id: 3, name: 'Languages'}
   ]
-
+  
   submit(course){
     console.log(course);
   }
