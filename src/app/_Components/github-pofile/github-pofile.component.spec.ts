@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
 import { GithubPofileComponent } from './github-pofile.component';
 
 describe('GithubPofileComponent', () => {
@@ -8,7 +8,8 @@ describe('GithubPofileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GithubPofileComponent ]
+      declarations: [ GithubPofileComponent ],
+      imports: [ ActivatedRoute ]
     })
     .compileComponents();
   }));

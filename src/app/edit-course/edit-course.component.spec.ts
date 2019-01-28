@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { EditCourseComponent } from './edit-course.component';
 
 describe('EditCourseComponent', () => {
@@ -8,7 +8,8 @@ describe('EditCourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditCourseComponent ]
+      declarations: [ EditCourseComponent ],
+      providers: [ MAT_DIALOG_DATA ]
     })
     .compileComponents();
   }));

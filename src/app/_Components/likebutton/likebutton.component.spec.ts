@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { By } from "@angular/platform-browser";
 import { LikebuttonComponent } from './likebutton.component';
 
 describe('LikebuttonComponent', () => {
@@ -21,5 +22,22 @@ describe('LikebuttonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Initial count should be', () => {
+
+    //Detects environment changes
+    fixture.detectChanges();
+
+    //Find element by css 
+    let elSelector = '.ng-star-inserted span:nth-child(3)';
+    let de = fixture.debugElement.query(By.css(elSelector));
+
+    //convert element as HTML element
+    let el: HTMLElement = de.nativeElement;
+
+    //Assert element should contain value 10
+    expect(el.innerText).toContain('10');
+
   });
 });

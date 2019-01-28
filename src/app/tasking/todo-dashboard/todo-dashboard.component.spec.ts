@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { select, NgRedux } from '@angular-redux/store';
 import { TodoDashboardComponent } from './todo-dashboard.component';
 
 describe('TodoDashboardComponent', () => {
@@ -8,7 +8,8 @@ describe('TodoDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoDashboardComponent ]
+      declarations: [ TodoDashboardComponent ],
+      providers: [ NgRedux ]
     })
     .compileComponents();
   }));

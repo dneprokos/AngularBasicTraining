@@ -12,7 +12,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { SummaryPipe } from './_Pipes/summary.pipe';
 import { TitleCasePipe } from './_Pipes/title-case.pipe';
 import { InputFormatDirective } from './input-format.directive';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { HomeComponent } from './_Pages/home/home.component';
 import { PostsComponent } from './_Pages/posts/posts.component';
 import { GitFollowingComponent } from './_Pages/git-following/git-following.component';
@@ -61,6 +61,7 @@ import { TodoListComponent } from './tasking/todo-list/todo-list.component';
 import { TodoDashboardComponent } from './tasking/todo-dashboard/todo-dashboard.component';
 import { ReduxExampleComponent } from './countingRedux/redux-example/redux-example.component';
 import { MatComponentsModule } from './mat-components/mat-components.module';
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -117,37 +118,7 @@ import { MatComponentsModule } from './mat-components/mat-components.module';
     BrowserAnimationsModule,
     MatComponentsModule,
     NgReduxModule,      
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'unsorted', component: UnsortedTestComponentsComponent },
-      { path: 'following', component: GitFollowingComponent },
-      { path: 'following/:id/:username', component: GithubPofileComponent },
-      { path: 'archive/:year/:month', component: ArchiveComponent },
-      { path: 'posts', component: PostsComponent },
-      { path: 'courses', component: CoursesComponent },
-      { path: 'contactform', component: ContactFormComponent },
-      { path: 'createcourse', component: CreateCourseComponent },
-      { path: 'newcourse', component: NewCourseFormComponent },
-      { path: 'signup', component: SignupFormComponent },
-      { path: 'formbuilder', component: FormBuilderComponent },
-      { path: 'changepassword', component: ChangePasswordComponent },
-      { path: 'inputfield', component: InputFieldComponent },
-      { path: 'ngswitch', component: NgSwitchCaseComponent },
-      { path: 'ngfor', component: NgForComponent },
-      { path: 'ngif', component: NgIfComponent },
-      { path: 'glyphicons', component: GlyphIconsComponent },
-      { path: 'testpanels', component: TestPanelsComponent },
-      { path: 'redux', component: ReduxExampleComponent },
-      { path: 'angulalMaterial', component: AngularMeterialComponent },
-      {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [AuthGuard, AdminAuthGuard]
-      },
-      { path: 'login', component: LoginComponent },
-      { path: 'no-access', component: NoAccessComponent },
-      { path: '**', component: NotFoundComponent },
-    ])
+    RouterModule.forRoot(routes)
   ],
   providers: [
     CoursesService,

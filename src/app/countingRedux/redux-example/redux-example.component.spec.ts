@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NgRedux } from '@angular-redux/store';
 import { ReduxExampleComponent } from './redux-example.component';
 
 describe('ReduxExampleComponent', () => {
@@ -8,7 +8,8 @@ describe('ReduxExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReduxExampleComponent ]
+      declarations: [ ReduxExampleComponent ],
+      providers: [NgRedux]
     })
     .compileComponents();
   }));
